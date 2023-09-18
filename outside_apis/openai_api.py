@@ -10,7 +10,7 @@ load_dotenv(find_dotenv())
 openai.api_key = os.getenv('OPENAI_API_KEY')
 
 
-def chat_complition(messages: list[dict]) -> dict:
+def chat_complition(messages: list[dict]) -> str:
     '''
     Call Openai API for chat completion
 
@@ -25,12 +25,7 @@ def chat_complition(messages: list[dict]) -> dict:
             model='gpt-4',
             messages=messages
         )
-        return {
-            'status': 1,
-            'response': response['choices'][0]['message']['content']
-        }
+        print(response)
+        return response['choices'][0]['message']['content']
     except:
-        return {
-            'status': 0,
-            'response': ''
-        }
+        return 'Sorry, I am out of service at this moment.'

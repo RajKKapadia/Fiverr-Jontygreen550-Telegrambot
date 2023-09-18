@@ -89,7 +89,4 @@ def generate_response(query: str, messages: list[dict]) -> str:
     '''
     formated_messages = format_messages(messages, query)
     result = chat_complition(formated_messages)
-    if result['status'] == 1:
-        return result['response']
-    else:
-        return 'Sorry, I am out of service at this moment.'
+    return result['response']

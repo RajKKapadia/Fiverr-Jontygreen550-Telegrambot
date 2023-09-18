@@ -24,6 +24,7 @@ def telegram_api():
     if request.is_json:
         body = request.get_json()
         data = process_request(body)
+        print(data)
         # Make sure the request has text and is not from a Telegram bot
         if data['is_text'] and not data['is_bot']:
             # Check user exists
@@ -31,6 +32,7 @@ def telegram_api():
             if user:
                 response = generate_response(
                     data['message'], user['messages'])
+                print(response)
                 update_messages(data['sender_id'], data['message'], response)
                 _ = send_message(data['sender_id'], response)
             # IF user does not exists
