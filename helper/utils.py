@@ -88,5 +88,5 @@ def generate_response(query: str, messages: list[dict]) -> str:
         - str: formated response for the command
     '''
     formated_messages = format_messages(messages, query)
-    result = chat_complition(formated_messages)
-    return result['response']
+    response = chat_complition(formated_messages)
+    return response
