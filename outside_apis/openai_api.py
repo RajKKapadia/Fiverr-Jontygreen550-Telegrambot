@@ -22,7 +22,7 @@ def chat_complition(messages: list[dict]) -> str:
     '''
     try:
         response = openai.ChatCompletion.create(
-            model='gpt-4',
+            model='gpt-3.5-turbo',
             messages=messages
         )
         print(response)
